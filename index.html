@@ -110,7 +110,7 @@ input[type=number]{width:74px}
 .limits{display:flex;gap:8px;margin-top:1px;font-weight:700}
 .da{color:var(--da)} .xiao{color:var(--xiao)}
 
-/* 中宮(白底彩字 + 興發篆體浮水印) */
+/* 中宮(白底彩字 + 篆體浮水印) */
 .center{grid-column:2/4;grid-row:2/4;background:#fff;color:var(--ink);border:1px solid var(--line-strong);
   border-radius:12px;padding:14px 16px;cursor:default;display:flex;flex-direction:column;justify-content:center;
   gap:0;position:relative;overflow:hidden}
@@ -207,7 +207,7 @@ input[type=number]{width:74px}
 <div class="panel">
   <div class="row">
     <div class="field"><label>姓名</label><input type="text" id="nm" placeholder="(選填)" style="width:110px"></div>
-    <div class="field"><label>浮水印</label><input type="text" id="wm" value="興發" maxlength="9" placeholder="最多9字" style="width:72px"></div>
+    <div class="field"><label>浮水印</label><input type="text" id="wm" value="興發佛雕" maxlength="9" placeholder="最多9字" style="width:72px"></div>
     <div class="field"><label>印文字型</label>
       <select id="wmFont">
         <option value="seal" selected>崇羲篆體·小篆</option>
@@ -1368,7 +1368,7 @@ function render(C, info, ly){
   const nameLine = info.name ? `<div class="cname">${info.name}</div>` : '';
   const rocY = info.sY - 1911;
   // 浮水印：每直行最多3字、直行由右至左、行內由上而下順填；4字為2×2特例；最多9字
-  const wmText=[...String(info.wm||'興發')].slice(0,9);
+  const wmText=[...String(info.wm||'興發佛雕')].slice(0,9);
   let wmCols;
   if(wmText.length===4) wmCols=[wmText.slice(0,2),wmText.slice(2,4)];
   else { wmCols=[]; for(let i=0;i<wmText.length;i+=3) wmCols.push(wmText.slice(i,i+3)); }
@@ -1456,7 +1456,7 @@ function run(){
   const sex=document.querySelector('input[name=sex]:checked').value;
   const era=document.querySelector('input[name=era]:checked').value;
   const name=$('nm').value.trim();
-  const wm=($('wm').value.trim())||'興發';
+  const wm=($('wm').value.trim())||'興發佛雕';
   const wmFontKey=$('wmFont').value;
   const WMFONTS={iansui:"'Iansui','KaiTi','標楷體',serif",seal:"'ChongXiWeb','崇羲篆體','Chong Xi Small Seal','Iansui',serif",kai:"'KaiTi','DFKai-SB','標楷體',serif",hei:"'PingFang TC','Noto Sans TC','微軟正黑體',sans-serif"};
   ensureSealFont($('sealUrl').value.trim());
